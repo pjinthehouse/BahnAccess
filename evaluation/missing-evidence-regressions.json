@@ -1,0 +1,29 @@
+{
+  "provenance": "Assistant-authored engineering regressions for a pinned data snapshot. The team must independently annotate its course gold set.",
+  "cases": [
+    {"id":"R01","input":{"question":"Can I get to the exact departure platfrom without staires on the 09:39 ICE 41 from Wurzbrg to Nurnbrg?","date":"2026-11-24"},"expect":{"status":"partial","trip":"11nki","reason":null}},
+    {"id":"R02","input":{"question":"What exact track will I arrive on, and does it have tactil guidance? I travel from Wuerzburg to Muenchen on the 12:38 ICE 24.","date":"2026-11-24"},"expect":{"status":"partial","trip":"slmt","reason":null}},
+    {"id":"R03","input":{"question":"Are the lifts working right now from Regensbrg to Nurnberg?","date":"2026-11-24"},"expect":{"status":"refused","reason":"unsupported_need"}},
+    {"id":"R04","input":{"question":"What time does the 09:39 ICE 41 from Wuerzburg to Nuremberg arrive, and can I reach the station exit without stairs?","date":"2026-11-24"},"expect":{"status":"partial","trip":"11nki","reason":null}},
+    {"id":"R05","input":{"question":"Are there any elevatrs recorded at Augsbrg Hbf?"},"expect":{"status":"answered","reason":null}},
+    {"id":"R06","input":{"question":"What train goes from Würzburg to Berlin?","date":"2026-11-24"},"expect":{"status":"refused","reason":"station_out_of_scope"}},
+    {"id":"R07","input":{"question":"Is the arrival platform step-free?","origin":"wue","destination":"nue","date":"2026-11-24","after":"09:39"},"expect":{"status":"partial","trip":"11nki","reason":null}},
+    {"id":"R08","input":{"question":"Show direct trains from Regensburg to Augsburg on 2026-11-24."},"expect":{"status":"refused","reason":"no_direct_trip"}},
+    {"id":"R09","input":{"question":"Which exact track do I arrive on from Regensburg to Nuernberg after 09:30 on 2026-11-24?"},"expect":{"status":"refused","reason":"no_supported_evidence","trip":"151hq"}},
+    {"id":"R10","input":{"question":"Show the next train from Augsbrug to Munchen on 24 November 2026 after 9 am."},"expect":{"status":"answered","reason":null,"trip":"7lz9"}},
+    {"id":"R11","input":{"question":"Can I find tactil guidance at Regensbrg Hbf?"},"expect":{"status":"answered","reason":null}},
+    {"id":"R12","input":{"question":"Is the 09:39 ICE 41 from Würzburg to Nürnberg delayed on 2026-11-24?"},"expect":{"status":"refused","reason":"unsupported_need","answerIncludes":"real-time train status"}},
+    {"id":"R13","input":{"question":"Are there lifts at Augsburg, and are they working right now?"},"expect":{"status":"partial","reason":null,"sourceFields":["LiftEquipment"],"claimStations":["Augsburg Hbf"],"answerIncludes":"live lift status"}},
+    {"id":"R14","input":{"question":"Show trains from Regensburg to Nürnberg on 01.12.2026 after 9 am."},"expect":{"status":"answered","reason":null,"trip":"151hq","date":"2026-12-01"}},
+    {"id":"R15","input":{"question":"Is the platform step-free when I arrive at 10:38 on ICE 41 from Würzburg to Nürnberg on 2026-11-24?"},"expect":{"status":"partial","reason":null,"trip":"11nki","claimStations":["Nürnberg Hbf"]}},
+    {"id":"R16","input":{"question":"Can I bring my bicycle from Augsburg to Munich on 2026-11-24?"},"expect":{"status":"refused","reason":"unsupported_need","answerIncludes":"bicycle carriage"}},
+    {"id":"R17","input":{"question":"What time is the next train from Augsburg to Munich and how much is the ticket on 2026-11-24?"},"expect":{"status":"partial","reason":null,"trip":"7lz9","answerIncludes":"ticket fares"}},
+    {"id":"R18","input":{"question":"Are there lifts at Regensburg Hbf and Augsburg Hbf?"},"expect":{"status":"answered","reason":null,"sourceFields":["LiftEquipment"],"claimStations":["Regensburg Hbf","Augsburg Hbf"]}},
+    {"id":"R19","input":{"question":"Show direct trains from Regensburg to Nürnberg on 31.11.2026 after 9 am."},"expect":{"status":"refused","reason":"invalid_date"}},
+    {"id":"R20","input":{"question":"Can I get from Würzburg to Nürnberg on ICE 41 after 09:00 and arrive by 10:38 on 2026-11-24?"},"expect":{"status":"answered","reason":null,"trip":"11nki"}},
+    {"id":"R21","input":{"question":"What time does the 09:39 ICE 41 from Würzburg to Nürnberg depart, and is it cancelled on 2026-11-24?"},"expect":{"status":"partial","reason":null,"trip":"11nki","answerIncludes":"real-time train status"}},
+    {"id":"R22","input":{"question":"Is there mobile phone reception on the train from Regensburg to Nürnberg on 2026-11-24?"},"expect":{"status":"refused","reason":"unsupported_need"}},
+    {"id":"R23","input":{"question":"Show trains from Regensburg to Nürnberg on 01/12/2026 after 9 am."},"expect":{"status":"answered","reason":null,"trip":"151hq","date":"2026-12-01"}},
+    {"id":"R24","input":{"question":"What time do I leave Würzburg on the 09:39 ICE 41 to Nürnberg, and what is the weather on 2026-11-24?"},"expect":{"status":"partial","reason":null,"trip":"11nki","answerIncludes":"weather"}}
+  ]
+}

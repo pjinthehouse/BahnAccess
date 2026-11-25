@@ -1,0 +1,58 @@
+{
+  "provenance": "Engineering regression results. Independent human gold labels were not supplied.",
+  "latencyScope": "Warm Worker handler in local Node, including JSON serialization and parsing. Network and cold starts excluded.",
+  "bm25": {
+    "cases": 35,
+    "byExpectedLabel": {
+      "answered": 9,
+      "partial": 12,
+      "refused": 14
+    },
+    "matchedLabels": 35,
+    "mismatches": [],
+    "citationsVerified": 42,
+    "refusalRate": {
+      "numerator": 14,
+      "denominator": 14,
+      "percent": 100
+    },
+    "falseRefusalRate": {
+      "numerator": 0,
+      "denominator": 21,
+      "percent": 0
+    },
+    "warmLocalMs": {
+      "p50": 0.365,
+      "p95": 1.033,
+      "requests": 525
+    },
+    "modelApiCostEUR": 0
+  },
+  "hybrid": {
+    "cases": 35,
+    "byExpectedLabel": {
+      "answered": 9,
+      "partial": 12,
+      "refused": 14
+    },
+    "matchedLabels": 35,
+    "mismatches": [],
+    "citationsVerified": 42,
+    "refusalRate": {
+      "numerator": 14,
+      "denominator": 14,
+      "percent": 100
+    },
+    "falseRefusalRate": {
+      "numerator": 0,
+      "denominator": 21,
+      "percent": 0
+    },
+    "warmLocalMs": {
+      "p50": 0.375,
+      "p95": 0.749,
+      "requests": 525
+    },
+    "modelApiCostEUR": 0
+  }
+}

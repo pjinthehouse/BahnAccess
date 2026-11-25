@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Check direct rail journeys and trace their accessibility evidence to the original data.">
+  <title>Germany Accessible Transit</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#planner">Skip to journey planner</a>
+  <header class="site-header">
+    <div class="wrap header-content">
+      <a class="brand" href="/" aria-label="BahnAccess home">
+        <span class="brand-icon" aria-hidden="true"><i></i></span>
+        <span>Bahn<span class="brand-accent">Access</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#planner" aria-current="page">Journey planner</a>
+        <a href="#sources">Data &amp; sources</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="site-title">
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> GERMANY ACCESSIBLE TRANSIT</p>
+        <h1 id="site-title">Accessible rail<br><em>journey planner</em></h1>
+        <p>Ask about direct trains and station access at five Bavarian stations. Open the timetable and infrastructure records behind each answer.</p>
+      </div>
+      <div class="network" id="network" role="img" aria-label="Schematic direct train coverage">
+        <canvas id="network-canvas" width="468" height="255" aria-hidden="true"></canvas>
+        <span class="map-label"><i></i>BAVARIA · DIRECT SERVICE IN SNAPSHOT</span>
+      </div>
+    </section>
+
+    <div class="workbench" id="planner">
+      <section class="panel planner" aria-labelledby="planner-title">
+        <div class="section-marker" aria-hidden="true"><span class="sliders-icon"></span></div>
+        <h2 id="planner-title">Plan your journey</h2>
+        <form id="question-form">
+          <label for="question">Ask a journey or station question</label>
+          <textarea id="question" name="question" rows="3" maxlength="600" required
+            placeholder="Are there lifts at Augsbrg Hbf?" aria-describedby="question-hint"></textarea>
+          <p class="form-hint" id="question-hint">Use a station name or write “from X to Y”. Common spelling mistakes are supported.</p>
+          <button type="submit" class="primary" id="ask-question" disabled>Ask question</button>
+          <div class="example">
+            <button type="button" id="example" disabled>Try a question with a spelling mistake</button>
+          </div>
+        </form>
+        <p class="error" id="query-error" role="alert" hidden></p>
+        <details class="manual-planner">
+          <summary>Choose stations and access needs</summary>
+          <form id="journey-form">
+          <div class="station-fields">
+            <label for="origin">Origin</label>
+            <select id="origin" name="origin" required></select>
+            <button class="swap" type="button" id="swap" aria-label="Swap origin and destination" title="Swap origin and destination">&#8645;</button>
+            <label for="destination">Destination</label>
+            <select id="destination" name="destination" required></select>
+          </div>
+          <div class="date-time">
+            <div><label for="date">Travel date</label><input type="date" id="date" name="date" required aria-describedby="snapshot"></div>
+            <div><label for="after">Depart after</label><input type="time" id="after" name="after" value="09:00" required></div>
+          </div>
+          <p class="form-hint" id="snapshot">Loading timetable snapshot…</p>
+          <fieldset>
+            <legend>Accessibility needs</legend>
+            <label class="need"><input type="checkbox" name="needs" value="step" checked><span>Step-free platform access</span></label>
+            <label class="need"><input type="checkbox" name="needs" value="wheelchair" checked><span>Wheelchair boarding</span></label>
+            <label class="need"><input type="checkbox" name="needs" value="tactile"><span>Tactile guidance</span></label>
+            <label class="need"><input type="checkbox" name="needs" value="lifts"><span>Recorded lifts</span></label>
+            <details class="other-needs">
+              <summary>More accessibility checks</summary>
+              <label class="need"><input type="checkbox" name="needs" value="live_lifts"><span>Live lift status</span></label>
+              <label class="need"><input type="checkbox" name="needs" value="onboard_toilet"><span>Accessible toilets onboard</span></label>
+            </details>
+          </fieldset>
+          <button type="submit" class="primary" id="submit" disabled>Check journey</button>
+          </form>
+        </details>
+      </section>
+
+      <section class="panel result-panel" aria-labelledby="results-title">
+        <div class="result-head">
+          <div class="section-marker" aria-hidden="true"><span class="rail-icon"></span></div>
+          <div><h2 id="results-title" tabindex="-1">Journey results</h2><p class="muted section-lead" id="result-subtitle">Timetable and accessibility evidence</p></div>
+        </div>
+        <div class="sr-only" id="status" role="status"></div>
+        <div id="result-content" aria-busy="true"><p class="empty">Loading the station and timetable snapshots…</p></div>
+      </section>
+    </div>
+
+    <section class="panel sources-panel" id="sources" aria-labelledby="sources-title">
+      <div class="result-head">
+        <div class="section-marker" aria-hidden="true"><span class="link-icon"></span></div>
+        <div><h2 id="sources-title">Data &amp; sources</h2><p class="muted section-lead">Open a citation to see the evidence used for your journey.</p></div>
+      </div>
+      <div class="source-grid" id="source-list"></div>
+      <div class="data-links">
+        <a href="https://www.gtfs.de/en/feeds/de_full/" target="_blank" rel="noopener noreferrer">GTFS.de Germany Full</a>
+        <a href="https://github.com/dbinfrago/openstation-docs" target="_blank" rel="noopener noreferrer">DB InfraGO OpenStation</a>
+        <a href="/evaluation.json">Original test cases</a>
+        <a href="/evaluation-regressions.json">Missing-evidence test cases</a>
+        <a href="/evaluation-results.json">Evaluation results</a>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><span><strong>BahnAccess</strong> · Germany Accessible Transit RAG</span><a href="https://int.bahn.de/en/booking-information/accessible-travel" target="_blank" rel="noopener noreferrer">DB accessible travel (opens in a new tab)</a></footer>
+</body>
+</html>

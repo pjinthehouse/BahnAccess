@@ -1,0 +1,11 @@
+{
+  "name": "germany-accessible-transit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/evaluate.mjs",
+    "dev": "node scripts/serve.mjs",
+    "evaluate:gold": "node scripts/evaluate.mjs --gold"
+  }
+}

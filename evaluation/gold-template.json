@@ -1,0 +1,36 @@
+{
+  "dataset": "Transit accessibility, human annotation",
+  "annotators": [],
+  "cases": [
+    {
+      "id": "G01",
+      "input": {
+        "question": "Can I reach the exact departure platform without stairs on the 09:39 ICE 41 from Würzburg to Nürnberg?",
+        "date": "2026-11-24"
+      },
+      "expected": null,
+      "evidence": [],
+      "rationale": ""
+    },
+    {
+      "id": "G02",
+      "input": {
+        "question": "Which track will the 12:38 ICE 24 from Würzburg arrive on in München, and does that track have tactile guidance?",
+        "date": "2026-11-24"
+      },
+      "expected": null,
+      "evidence": [],
+      "rationale": ""
+    },
+    {
+      "id": "G03",
+      "input": {
+        "question": "What time does the 09:39 ICE 41 from Würzburg to Nürnberg arrive, and can I reach the station exit without stairs?",
+        "date": "2026-11-24"
+      },
+      "expected": null,
+      "evidence": [],
+      "rationale": ""
+    }
+  ]
+}

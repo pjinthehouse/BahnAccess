@@ -1,0 +1,17 @@
+{
+  "defaults": {"origin":"Würzburg Hbf","destination":"Nürnberg Hbf","date":"2026-11-24","after":"09:00","needs":["step"]},
+  "provenance": "Source-based acceptance cases specified before the retrieval implementation. This fixture is not a human-annotated gold set. Expected timetable trip IDs and NeTEx entities can be checked independently against the pinned source files.",
+  "cases": [
+    {"id":"A01","question":"What leaves Würzburg Hbf for Nürnberg Hbf after 09:00, and what step-free facilities are recorded?","input":{},"expect":{"status":"partial","trip":"11nki","sourceFields":["StepFreeAccess"],"stationIds":["dhid:de:09663:177:EdB","dhid:de:09564:510:EdB"]}},
+    {"id":"A02","question":"What is the first scheduled Nürnberg–München direct train after 09:00?","input":{"origin":"Nürnberg","destination":"Munich","needs":[]},"expect":{"status":"answered","trip":"1hb6","sourceFields":[]}},
+    {"id":"A03","question":"Can the static source show evidence of tactile guidance for a planned trip from Würzburg to München?","input":{"origin":"Wuerzburg","destination":"Muenchen","after":"12:37","needs":["tactile"]},"expect":{"status":"partial","trip":"slmt","sourceFields":["TactileGuidanceAvailable"],"stationIds":["dhid:de:09663:177:EdB","dhid:de:09162:100:EdB"]}},
+    {"id":"A04","question":"Is there a direct München to Würzburg train from 09:00, and what lift infrastructure is mapped?","input":{"origin":"München Hbf","destination":"Würzburg Hbf","needs":["lifts"]},"expect":{"status":"answered","trip":"jc6a","sourceFields":["LiftEquipment"],"stationIds":["dhid:de:09162:100:EdB","dhid:de:09663:177:EdB"]}},
+    {"id":"A05","question":"What can the sources tell me about wheelchair boarding on Würzburg to Nürnberg?","input":{"needs":["wheelchair"]},"expect":{"status":"partial","trip":"11nki","sourceFields":["WheelchairAccess"],"stationIds":["dhid:de:09663:177:EdB","dhid:de:09564:510:EdB"]}},
+    {"id":"U01","question":"Can I get to Berlin Hbf using these data?","input":{"destination":"Berlin Hbf"},"expect":{"status":"refused","reason":"station_out_of_scope"}},
+    {"id":"U02","question":"Can I take this journey on 31 January 2027?","input":{"date":"2027-01-31"},"expect":{"status":"refused","reason":"date_out_of_scope"}},
+    {"id":"U03","question":"Are lifts currently working on this route?","input":{"needs":["live_lifts"]},"expect":{"status":"refused","reason":"unsupported_need"}},
+    {"id":"U04","question":"Is there a wheelchair-accessible toilet on the train?","input":{"needs":["onboard_toilet"]},"expect":{"status":"refused","reason":"unsupported_need"}},
+    {"id":"U05","question":"Can you confirm that boarding assistance is booked for me?","input":{"needs":["assistance_booking"]},"expect":{"status":"refused","reason":"unsupported_need"}},
+    {"id":"U06","question":"Which direct train can I take from Würzburg to Nürnberg after 23:59 on 24 November?","input":{"after":"23:59"},"expect":{"status":"refused","reason":"no_direct_trip"}}
+  ]
+}

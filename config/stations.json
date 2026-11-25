@@ -1,0 +1,7 @@
+{
+  "wue": {"name":"Würzburg Hbf","aliases":["Würzburg","Wuerzburg"],"gtfsParentId":"db84","openstationId":"dhid:de:09663:177:EdB","dbSlug":"wuerzburg-hbf","map":[20,30]},
+  "nue": {"name":"Nürnberg Hbf","aliases":["Nürnberg","Nuernberg","Nuremberg"],"gtfsParentId":"5iui","openstationId":"dhid:de:09564:510:EdB","dbSlug":"nuernberg-hbf","map":[52,35]},
+  "muc": {"name":"München Hbf","aliases":["München","Muenchen","Munich","Munchen"],"gtfsParentId":"4mig","openstationId":"dhid:de:09162:100:EdB","dbSlug":"muenchen-hbf","map":[74,76]},
+  "reg": {"name":"Regensburg Hbf","aliases":["Regensburg","Ratisbon"],"gtfsParentId":"6r28","openstationId":"dhid:de:09362:11090:EdB","dbSlug":"regensburg-hbf","map":[81,48]},
+  "aug": {"name":"Augsburg Hbf","aliases":["Augsburg"],"gtfsParentId":"1byp","openstationId":"dhid:de:09761:100:EdB","dbSlug":"augsburg-hbf","map":[36,66]}
+}
