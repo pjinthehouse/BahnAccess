@@ -9,8 +9,8 @@ BahnAccess answers questions about scheduled direct trains and recorded station 
 
    ```sh
    cd ~/Downloads
-   unzip germany-accessible-transit-v3.zip
-   cd germany-accessible-transit-v3
+   unzip BahnAccess-main.zip
+   cd BahnAccess-main
    ```
 
 3. Run `npm run dev` and open http://127.0.0.1:4173. Leave the terminal running while using the planner. Press Ctrl+C to stop it.
